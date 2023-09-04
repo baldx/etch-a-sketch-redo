@@ -1,0 +1,23 @@
+{
+  "name": "etch-a-sketch-redo",
+  "version": "1.0.0",
+  "description": "simple etch a skeetch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baldx/etch-a-sketch-redo.git"
+  },
+  "author": "baldx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baldx/etch-a-sketch-redo/issues"
+  },
+  "homepage": "https://github.com/baldx/etch-a-sketch-redo#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
