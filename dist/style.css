@@ -93,11 +93,24 @@ input[type="color"] {
 
 main {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5em;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .container {
     justify-self: center;
     align-self: center;
+}
+
+button:active {
+    background: var(--light-teal);
+}
+
+.container {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 600px;
+    width: 600px;
+}
+
+.pixel {
+    background-color: black;
 }
