@@ -10,16 +10,23 @@
 <body>
     <header>Etch a sketch</header>
 
-    <div class="buttons">
-        <input type="color" name="color" id="color">
-        <button id="rainbow">Rainbow mode</button>
-        <button id="eraser">Eraser</button>
-        <button id="clear">Clear</button>
-        <input type="range" name="size" id="size">
-    </div>
+    <main>
+        <div class="buttons">
+            <input type="color" name="color" id="color">
+            <button id="rainbow">Rainbow mode</button>
+            <button id="eraser">Eraser</button>
+            <button id="clear">Clear</button>
+            <div class="range-container">
+                <div class="size"></div>
+                <input type="range" name="size" id="size" max="64" min="4" value="32">
+            </div>
+            
+        </div>
+    
+        <div class="container">
+            <div class="pixel"></div>
+        </div>
+    </main>
 
-    <div class="container">
-        <div class="pixel"></div>
-    </div>
 </body>
 </html>
