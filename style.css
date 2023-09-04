@@ -66,16 +66,38 @@ input[type="color"] {
     border-radius: 90px;
     width: 100px;
     height: 100px;
-  }
+}
   
   #color::-webkit-color-swatch {
     border: none;
     border-radius: 90px;
     padding: 0;
-  }
+}
   
   #color::-webkit-color-swatch-wrapper {
     border: none;
     border-radius: 90px;
     padding: 0;
-  }
+}
+
+.size {
+    justify-self: center;
+    align-self: center;
+}
+
+
+.range-container {
+    display: grid;
+    grid-template-rows: 1fr, 1fr;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5em;
+}
+
+.container {
+    justify-self: center;
+    align-self: center;
+}
