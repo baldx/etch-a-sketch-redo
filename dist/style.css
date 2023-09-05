@@ -25,7 +25,7 @@ header {
     margin-top: 1em;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
 .buttons {
@@ -60,20 +60,20 @@ input[type="color"] {
 }
 
 #color {
-    -webkit-appearance: none;
+    appearance: none;
     padding: 0;
     border: none;
     border-radius: 90px;
     width: 100px;
     height: 100px;
 }
-  
+
   #color::-webkit-color-swatch {
     border: none;
     border-radius: 90px;
     padding: 0;
 }
-  
+
   #color::-webkit-color-swatch-wrapper {
     border: none;
     border-radius: 90px;
@@ -88,7 +88,8 @@ input[type="color"] {
 
 .range-container {
     display: grid;
-    grid-template-rows: 1fr, 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
 }
 
 main {
