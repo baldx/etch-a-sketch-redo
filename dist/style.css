@@ -113,5 +113,14 @@ button:active {
 }
 
 .pixel {
-    background-color: black;
+    width: auto;
+    height: auto;
+}
+
+.toggle {
+    background: var(--lighter-teal);
+}
+
+.pixel:hover {
+    background-color: red;
 }
