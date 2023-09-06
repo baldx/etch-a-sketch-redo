@@ -1,11 +1,12 @@
-const { container } = require("webpack");
-
 const sizeText = document.querySelector('.size');
 const sketch = document.querySelector('.container');
 const btn16 = document.querySelector('.px16');
 const btn32 = document.querySelector('.px32');
 const btn64 = document.querySelector('.px64');
 const color = document.querySelector('#color');
+const clear = document.querySelector('#clear');
+const erase = document.querySelector('#eraser');
+let isErase = false;
 
 
 
@@ -29,6 +30,7 @@ btn16.addEventListener('click', () => {
     btn16.classList.add('toggle');
     btn32.classList.remove('toggle');
     btn64.classList.remove('toggle');
+    sketch.innerHTML = '';
 
     for (let i = 0; i < 256; i++) {
         createGrid()
@@ -41,20 +43,22 @@ btn32.addEventListener('click', () => {
     sketch.style['grid-template-rows'] = 'repeat(32, 1fr)'
     btn16.classList.remove('toggle');
     btn32.classList.add('toggle');
-    btn64.classList.remove('toggle')
+    btn64.classList.remove('toggle');
+    sketch.innerHTML = '';
 
     for (let i = 0; i < 1024; i++) {
         createGrid()
     }
 });
-
 btn64.addEventListener('click', () => {
     sketch.style.display = 'grid'
     sketch.style['grid-template-columns'] = 'repeat(64, 1fr)'
     sketch.style['grid-template-rows'] = 'repeat(64, 1fr)'
     btn16.classList.remove('toggle');
     btn32.classList.remove('toggle');
-    btn64.classList.add('toggle')
+    btn64.classList.add('toggle');
+    sketch.innerHTML = '';
+
 
     for (let i = 0; i < 4096; i++) {
         createGrid()
@@ -64,19 +68,34 @@ btn64.addEventListener('click', () => {
 function currentColor() {
     color.addEventListener('input', () => {
         return color.value;
-    })
+    });
 }
-
-
-
 
 function createGrid () {
     const pixel = document.createElement('div');
-    sketch.append(pixel)
+    sketch.append(pixel);
     pixel.classList.add('pixel');
+    pixel.style.background = '#F8F6F4'
 
-    currentColor()
+    if (isErase === false) {
+        currentColor()
+    }
+
     pixel.addEventListener('mouseover', () => {
         pixel.style.background = color.value;
+        erasePixel();
     })
+
+    clear.addEventListener('click', () => {
+        pixel.style.background = '#F8F6F4';
+    });
+
+    function erasePixel () {
+        erase.addEventListener('click', () => {
+            isErase = true;
+            pixel.addEventListener('mouseover', () => {
+                pixel.style.background = '#F8F6F4';
+            })
+        })
+    }
 }
