@@ -36,6 +36,8 @@ btn16.addEventListener('click', () => {
     btn32.classList.remove('toggle');
     btn64.classList.remove('toggle');
     sketch.innerHTML = '';
+    erase.classList.remove('toggle')
+    colorMode.classList.add('toggle')
 
     for (let i = 0; i < 256; i++) {
         createGrid()
@@ -50,6 +52,8 @@ btn32.addEventListener('click', () => {
     btn32.classList.add('toggle');
     btn64.classList.remove('toggle');
     sketch.innerHTML = '';
+    erase.classList.remove('toggle')
+    colorMode.classList.add('toggle')
 
     for (let i = 0; i < 1024; i++) {
         createGrid()
@@ -63,6 +67,8 @@ btn64.addEventListener('click', () => {
     btn32.classList.remove('toggle');
     btn64.classList.add('toggle');
     sketch.innerHTML = '';
+    erase.classList.remove('toggle')
+    colorMode.classList.add('toggle')
 
 
     for (let i = 0; i < 4096; i++) {
