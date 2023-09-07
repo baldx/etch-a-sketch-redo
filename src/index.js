@@ -7,9 +7,17 @@ const color = document.querySelector('#color');
 const clear = document.querySelector('#clear');
 const erase = document.querySelector('#eraser');
 const colorMode = document.querySelector('#colorMode');
+const rainbow = document.querySelector('#rainbow');
 let isErase = false;
 
 
+function rainbowMode () {
+    let R = Math.floor(Math.random() * 255);
+    let G = Math.floor(Math.random() * 255);
+    let B = Math.floor(Math.random() * 255);
+
+    return `rgb(${R}, ${G}, ${B})`
+}
 
 window.onload = () => {
     sketch.style.display = 'grid'
@@ -37,6 +45,7 @@ btn16.addEventListener('click', () => {
     btn64.classList.remove('toggle');
     sketch.innerHTML = '';
     erase.classList.remove('toggle')
+    rainbow.classList.remove('toggle')
     colorMode.classList.add('toggle')
 
     for (let i = 0; i < 256; i++) {
@@ -53,6 +62,7 @@ btn32.addEventListener('click', () => {
     btn64.classList.remove('toggle');
     sketch.innerHTML = '';
     erase.classList.remove('toggle')
+    rainbow.classList.remove('toggle')
     colorMode.classList.add('toggle')
 
     for (let i = 0; i < 1024; i++) {
@@ -68,6 +78,7 @@ btn64.addEventListener('click', () => {
     btn64.classList.add('toggle');
     sketch.innerHTML = '';
     erase.classList.remove('toggle')
+    rainbow.classList.remove('toggle')
     colorMode.classList.add('toggle')
 
 
@@ -91,14 +102,15 @@ function createGrid () {
     if (isErase === false) {
         currentColor()
     }
-
+    
     pixel.addEventListener('mouseover', () => {
         pixel.style.background = color.value;
-    })
+    });
 
     colorMode.addEventListener('click', () => {
         erase.classList.remove('toggle')
         colorMode.classList.add('toggle')
+        rainbow.classList.remove('toggle')
         color.value = currentColor();
         pixel.addEventListener('mouseover', () => {
             pixel.style.background = color.value;
@@ -107,11 +119,21 @@ function createGrid () {
 
     clear.addEventListener('click', () => {
         pixel.style.background = '#F8F6F4';
-        colorMode.classList.remove('toggle')
     });
+
+    rainbow.addEventListener('click', () => {
+        erase.classList.remove('toggle')
+        colorMode.classList.remove('toggle')
+        rainbow.classList.add('toggle')
+        pixel.addEventListener('mouseover', () => {
+            pixel.style.background = rainbowMode();
+        })
+    })
+
 
     erase.addEventListener('click', () => {
         colorMode.classList.remove('toggle');
+        rainbow.classList.remove('toggle')
         erase.classList.add('toggle');
         pixel.addEventListener('mouseover', () => {
             pixel.style.background = eraseBtn();
