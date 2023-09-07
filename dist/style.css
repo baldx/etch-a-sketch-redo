@@ -124,3 +124,13 @@ button:active {
 .pixel:hover {
     background-color: red;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 16px;
+}
+
+footer a {
+    color: black;
+}
